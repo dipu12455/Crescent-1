@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS `crescent-1`.`Sales` (
-  `sale_id` INT NOT NULL AUTO_INCREMENT,
-  `house_id` INT NOT NULL,
-  `sale_date` DATETIME,
-  `sale_price` DECIMAL(12,2),
-  PRIMARY KEY (`sale_id`, `house_id`));
+create table if not exists `crescent-1`.`sales` (
+  `sale_id` int not null auto_increment,
+  `house_id` int not null,
+  `sale_date` datetime,
+  `sale_price` decimal(12,2),
+  primary key (`sale_id`, `house_id`));

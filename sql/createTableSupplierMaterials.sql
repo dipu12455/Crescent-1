@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS `crescent-1`.`SupplierMaterials` (
-  `supplier_id` INT NOT NULL,
-  `material_id` INT NOT NULL,
-  `unit_price` DECIMAL(10,2) NOT NULL,
-  PRIMARY KEY (`supplier_id`, `material_id`));
+create table if not exists `crescent-1`.`suppliermaterials` (
+  `supplier_id` int not null,
+  `material_id` int not null,
+  `unit_price` decimal(10,2) not null,
+  primary key (`supplier_id`, `material_id`));

@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS `crescent-1`.`HouseMaterials` (
-  `house_id` INT NOT NULL,
-  `supplier_id` INT NOT NULL,
-  `material_id` INT NOT NULL,
-  `how_many` INT,
-  PRIMARY KEY (`house_id`, `supplier_id`, `material_id`));
+create table if not exists `crescent-1`.`housematerials` (
+  `house_id` int not null,
+  `supplier_id` int not null,
+  `material_id` int not null,
+  `how_many` int,
+  primary key (`house_id`, `supplier_id`, `material_id`));
