@@ -1,0 +1,49 @@
+address,city,state,zipcode,construction_date
+123 Main St,Anytown,CA,12345,01-01-2010
+456 Elm St,Somewhere,FL,54321,03-15-2012
+789 Oak Ave,Nowhere,TX,67890,05-20-2014
+1011 Pine Rd,Smallville,NY,13579,07-25-2016
+1314 Maple Ln,Bigtown,WA,24680,09-30-2018
+1516 Cedar Ct,Middletown,OH,97531,11-04-2020
+1718 Birch Dr,Suburbia,IL,46802,01-09-2022
+1920 Walnut St,Uptown,MA,35791,03-14-2024
+2122 Cherry Ave,Downtown,PA,80246,02-10-2011
+2324 Spruce Rd,Countryside,GA,62480,04-25-2013
+2526 Willow Ln,Riverside,MI,13579,06-30-2015
+2728 Sycamore Ct,Harbor City,CA,97531,08-05-2017
+2930 Magnolia Dr,Greenfield,TX,35791,10-10-2019
+3132 Juniper St,Sunshine City,FL,46802,12-15-2021
+3334 Redwood Ave,Sunnyvale,CA,24680,01-20-2010
+3536 Dogwood Rd,Mountain View,TX,97531,03-25-2012
+3738 Aspen Ln,Paradise,OH,35791,05-30-2014
+3940 Cypress Ct,Pacific Heights,WA,80246,07-04-2016
+4142 Birch Dr,Golden Gate,IL,62480,09-09-2018
+4344 Cedar St,Redwood City,CA,13579,11-14-2020
+4546 Oak Ave,Silver Springs,PA,46802,01-19-2022
+4748 Pine Rd,Maplewood,MI,35791,03-25-2024
+4950 Maple Ln,Springfield,OH,62480,04-30-2009
+5152 Cherry Ct,Summerfield,WA,97531,06-04-2011
+5354 Elm Dr,Autumnville,GA,80246,08-09-2013
+5556 Willow St,Winter Park,FL,13579,10-14-2015
+5758 Birch Rd,Spring Hill,IL,24680,12-19-2017
+5960 Magnolia Ave,Forestville,MI,35791,02-24-2019
+6162 Dogwood Ln,Woodland,PA,62480,04-30-2021
+6364 Sycamore Ct,Lakeview,OH,97531,06-05-2010
+6566 Juniper Rd,Mountain City,WA,35791,08-10-2012
+6768 Redwood St,Ocean City,TX,46802,10-15-2014
+6970 Cedar Ave,Valley Springs,CA,13579,12-20-2016
+7172 Aspen Ln,Pine Ridge,FL,80246,01-25-2018
+7374 Oak Dr,Cypress Valley,IL,62480,03-01-2020
+7576 Pine Ct,Golden Hills,MI,35791,04-06-2022
+7778 Maple Rd,Harmony Grove,OH,97531,06-11-2024
+7980 Cherry St,Lakewood,WA,13579,07-16-2009
+8182 Elm Ave,Green Acres,GA,62480,09-21-2011
+8384 Willow Ln,Oakwood,PA,80246,11-26-2013
+8586 Birch Ct,Riverdale,TX,35791,01-31-2015
+8788 Magnolia Dr,Highland Park,FL,46802,04-05-2017
+8990 Dogwood St,Seaside,CA,13579,06-10-2019
+9192 Sycamore Rd,Hillcrest,IL,62480,08-15-2021
+9394 Juniper Ave,Mapleton,MI,35791,10-20-2010
+9596 Redwood Ct,Beachside,OH,97531,12-25-2012
+9798 Cedar Dr,Meadowbrook,WA,80246,02-29-2014
+99100 Aspen St,Westville,PA,13579,05-06-2016
