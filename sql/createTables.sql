@@ -1,5 +1,5 @@
 /* create the Suppliers table */
-create table if not exists `crescent-1`.`Suppliers` (
+create table if not exists `crescent1`.`Suppliers` (
   `supplier_id` int not null auto_increment,
   `supplier_name` varchar(255) not null,
   `contact_person` varchar(255) null,
@@ -7,13 +7,13 @@ create table if not exists `crescent-1`.`Suppliers` (
   primary key (`supplier_id`));
   
   /* create the Materials table */
-  create table if not exists `crescent-1`.`Materials` (
+  create table if not exists `crescent1`.`Materials` (
   `material_id` int not null auto_increment,
   `material_name` varchar(255) not null,
   primary key (`material_id`));
   
   /* create the Houses table */
-  create table if not exists `crescent-1`.`Houses` (
+  create table if not exists `crescent1`.`Houses` (
   `house_id` int not null auto_increment,
   `address` varchar(255) not null,
   `city` varchar(45) null,
@@ -23,7 +23,7 @@ create table if not exists `crescent-1`.`Suppliers` (
   primary key (`house_id`));
   
   /* create the Sales table */
-  create table if not exists `crescent-1`.`Sales` (
+  create table if not exists `crescent1`.`Sales` (
   `sale_id` int not null auto_increment,
   `house_id` int not null,
   `sale_date` datetime,
@@ -31,14 +31,14 @@ create table if not exists `crescent-1`.`Suppliers` (
   primary key (`sale_id`, `house_id`));
   
   /* create the SupplierMaterials table */
-  create table if not exists `crescent-1`.`SupplierMaterials` (
+  create table if not exists `crescent1`.`SupplierMaterials` (
   `supplier_id` int not null,
   `material_id` int not null,
   `unit_price` decimal(10,2) not null,
   primary key (`supplier_id`, `material_id`));
   
   /* create the HouseMaterials table */
-  create table if not exists `crescent-1`.`HouseMaterials` (
+  create table if not exists `crescent1`.`HouseMaterials` (
   `house_id` int not null,
   `supplier_id` int not null,
   `material_id` int not null,
