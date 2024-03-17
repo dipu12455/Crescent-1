@@ -1,17 +1,31 @@
 import mysql.connector # to install this module > pip install mysql-connector-python
 
-def createTables():
+# create a global connection variable
+connection = None
+cursor = None
+
+# contains the setup for connection and cursor
+def initSql():
     # Create a connection
+    global connection
+    global cursor
+    # specify variables as global when trying to change their value inside a function, here we are initializing the global variables, so we need it
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
         password="m!lesOv3rS4turN",
         database="crescent1"
         )
-
     # Create a cursor
     cursor = connection.cursor()
 
+def closeSql():
+    # Close the cursor
+    cursor.close()
+    # Close the connection
+    connection.close()
+
+def createTables():
     # Read the SQL query from the file
     with open('sql/createTables.sql', 'r') as file:
         query = file.read() # stores the entire file in the query variable, contains multiple queries though, cannot be executed all at once yet
@@ -24,9 +38,4 @@ def createTables():
 
     # Commit the changes
     connection.commit()
-    # changes need to be committed when making changes like this to the database, it is good practice    
-
-    # Close the cursor
-    cursor.close()
-    # Close the connection
-    connection.close()
+    # changes need to be committed when making changes like this to the database, it is good practice   
