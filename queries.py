@@ -25,9 +25,9 @@ def closeSql():
     # Close the connection
     connection.close()
 
-def createTables():
+def executeQueryFromFile(_sqlFilename):
     # Read the SQL query from the file
-    with open('sql/createTables.sql', 'r') as file:
+    with open(_sqlFilename, 'r') as file:
         query = file.read() # stores the entire file in the query variable, contains multiple queries though, cannot be executed all at once yet
 
     # Execute the query
@@ -38,4 +38,4 @@ def createTables():
 
     # Commit the changes
     connection.commit()
-    # changes need to be committed when making changes like this to the database, it is good practice   
+    # changes need to be committed when making changes like this to the database, it is good practice
