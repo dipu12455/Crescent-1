@@ -32,12 +32,17 @@ def executeQueryFromFile(_sqlFilename):
         query = file.read() # stores the entire file in the query variable, contains multiple queries though, cannot be executed all at once yet
     executeQuery(query)
 
-def sendQueryFromCsv():
-    queryString = "use crescent1;\ninsert into Houses (address, city, state, zipcode, construction_date)\n"
-    queryString += " values"
+def fillData():
+    # fill Houses table
+    header = "use crescent1;\ninsert into Houses (address, city, state, zipcode, construction_date)\n values"
+    sendQueryFromCsv('data/Houses.csv', header)
+
+
+def sendQueryFromCsv(_csvfile,_header):
+    queryString = _header
 
     # read CSV file
-    with open('data/Houses.csv', 'r') as csvfile:
+    with open(_csvfile, 'r') as csvfile:
         csvreader = csv.reader(csvfile)
         next(csvreader)  # skip the header row if it exists
 

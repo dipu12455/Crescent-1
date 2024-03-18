@@ -1,4 +1,4 @@
-from queries import initSql, closeSql, executeQueryFromFile, sendQueryFromCsv
+from queries import initSql, closeSql, executeQueryFromFile, fillData
 import csv
 
 if __name__ == "__main__": # this is true when this script is run directly, used for main entry point
@@ -10,7 +10,7 @@ if __name__ == "__main__": # this is true when this script is run directly, used
 
     # create foreign keys
 
-    sendQueryFromCsv()
+    fillData()
     
 
 
