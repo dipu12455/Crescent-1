@@ -37,7 +37,6 @@ def fillData():
     header = "use crescent1;\ninsert into Houses (address, city, state, zipcode, construction_date)\n values"
     sendQueryFromCsv('data/Houses.csv', header)
 
-
 def sendQueryFromCsv(_csvfile,_header):
     queryString = _header
 
@@ -49,8 +48,11 @@ def sendQueryFromCsv(_csvfile,_header):
         # iterate over each row in the CSV file
         for row in csvreader:
             # process the row and insert data into tables
-            queryString += "('" + row[0] + "', '" + row[1] + "', '" + row[2] + "', '" + row[3] + "', '" + row[4] + "'),"
-            queryString += "\n"
+            queryString += "("
+            for i in range(0, len(row)):
+                queryString += "'" + row[i] + "', "
+            queryString = queryString[:-2] # removing the last comma and space
+            queryString += "),\n"
 
     # remove the last two characters
     queryString = queryString[:-2]
