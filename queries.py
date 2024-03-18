@@ -53,8 +53,9 @@ def fillData():
     header = "use crescent1;\ninsert into Suppliers (supplier_name, contact_person, phone_number)\n values"
     sendQueryFromCsv('data/Suppliers.csv', header)
 
-
-
+    # fill HouseMaterials table
+    header = "use crescent1;\ninsert into HouseMaterials (house_id, supplier_id, material_id, how_many)\n values"
+    sendQueryFromCsv('data/HouseMaterials.csv', header)
 
 def sendQueryFromCsv(_csvfile,_header):
     queryString = _header

@@ -11,9 +11,6 @@ if __name__ == "__main__": # this is true when this script is run directly, used
     # create foreign keys
 
     fillData()
-    
-    
-
 
     # wait for user
     # input("Press Enter to continue..., all created tables will be deleted")
