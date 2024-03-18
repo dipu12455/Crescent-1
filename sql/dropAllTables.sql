@@ -14,6 +14,7 @@ alter table SupplierMaterials
 drop constraint fkSupplierMaterials_supplier_id,
 drop constraint fkSupplierMaterials_material_id;
 
+-- drop the tables if they exist
 drop table if exists HouseMaterials;
 drop table if exists Houses;
 drop table if exists Materials;
