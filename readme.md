@@ -6,9 +6,9 @@
 This program demonstrates how Python is used to send SQL queries to a database for data analysis. It is capable of producing data trends, which are useful for studying the performance of a project. In this case, we have mock data for a building company that builds houses.
 
 ## Installation
-This project requires matplotlib and sql-connector-python to be installed.
-> pip3 sql-connector-python
-> pip3 matplotlib
+This project requires matplotlib and sql-connector-python to be installed. <br>
+`> pip3 sql-connector-python`<br>
+`> pip3 matplotlib`<br>
 pip is usually shipped with python, so install python if you don't have it.
 
 ## Usage
