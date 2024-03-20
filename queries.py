@@ -57,6 +57,19 @@ def fillData():
     header = "use crescent1;\ninsert into HouseMaterials (house_id, supplier_id, material_id, how_many)\n values"
     sendQueryFromCsv('data/HouseMaterials.csv', header)
 
+def getTrendOfHouseSales():
+    # get the trend of house sales from 2014 to 2024
+    # placeholder
+    noOfHouses = []
+    for i in range(2014, 2024):
+        cursor.execute(f"select count(*) from Sales where year(sale_date) = {i}")
+        count = cursor.fetchone()[0]
+        if (count > 0):
+            noOfHouses.append(count)
+        else:
+            noOfHouses.append(0)
+    return noOfHouses
+
 def sendQueryFromCsv(_csvfile,_header):
     queryString = _header
 
