@@ -5,6 +5,7 @@
 ## Introduction
 This program demonstrates how Python is used to send SQL queries to a database for data analysis. It is capable of producing data trends, which are useful for studying the performance of a project. In this case, we have mock data for a building company that builds houses.
 
+## Data Model
 ![EER Diagram](EER.png)
 
 ## Installation
