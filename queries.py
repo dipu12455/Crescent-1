@@ -109,17 +109,37 @@ def ML():
     # ML code start (Linear Regression)
 
     sales = [] # list of sales per year from 2014 to 2024
+    CostOfManufacturing = [] # list of construction costs per year from 2014 to 2024
 
     for year in range(2014, 2025):
         cursor.execute(f"SELECT * FROM Sales WHERE YEAR(sale_date) = {year}")
         rows = cursor.fetchall()
+        yearlyCostOfManufacturing = 0
         for row in rows:
             # `rows` is a list of rows, iterating we get single row per loop, `row` is a list of columns, so accessing second column is row[1]
             currentHouse_id = row[1]
             # find all material and supplier relationships for current house_id in HouseMaterials table
             cursor.execute(f"select SUM(SupplierMaterials.unit_price * HouseMaterials.how_many) from HouseMaterials, SupplierMaterials where SupplierMaterials.supplier_id = HouseMaterials.supplier_id and SupplierMaterials.material_id = HouseMaterials.material_id and HouseMaterials.house_id = {currentHouse_id};")
-            construction_cost = cursor.fetchone()[0]
-            print(f"Construction cost for house {currentHouse_id} in year {year} is {construction_cost} \n")
+            house_construction_cost = cursor.fetchone()[0]
+            yearlyCostOfManufacturing += house_construction_cost
+        CostOfManufacturing.append(yearlyCostOfManufacturing)
+        cursor.execute(f"select SUM(sale_price) from Sales where year(sale_date) = {year}")
+        sales.append(cursor.fetchone()[0]) # append the total sales for that year
+    
+    # make a new list of per year profit which is sales - cost of manufacturing
+    profit = []
+    for i in range(0, len(sales)):
+        try:
+            profit.append(sales[i] - CostOfManufacturing[i])
+        except:
+            profit.append(0)
+    # print(profit)
+    for i in profit:
+        print(i)
+    
+    for i in CostOfManufacturing:
+        print("cost of manu" + str(i))
+
 
 
 
