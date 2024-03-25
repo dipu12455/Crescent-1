@@ -117,17 +117,8 @@ def ML():
             # `rows` is a list of rows, iterating we get single row per loop, `row` is a list of columns, so accessing second column is row[1]
             currentHouse_id = row[1]
             # find all material and supplier relationships for current house_id in HouseMaterials table
-            cursor.execute(f"SELECT * FROM HouseMaterials WHERE house_id = {currentHouse_id}")
-            houseMaterials_rows = cursor.fetchall()
-            construction_cost = 0
-            for houseMaterials_row in houseMaterials_rows:
-                supplier_id = houseMaterials_row[1]
-                material_id = houseMaterials_row[2]
-                amount = houseMaterials_row[3]
-                # find the unit price of the material from SupplierMaterials table
-                cursor.execute(f"SELECT unit_price FROM SupplierMaterials WHERE material_id = {material_id} AND supplier_id = {supplier_id}")
-                unit_price = cursor.fetchone()[0]
-                construction_cost += unit_price * amount
+            cursor.execute(f"select SUM(SupplierMaterials.unit_price * HouseMaterials.how_many) from HouseMaterials, SupplierMaterials where SupplierMaterials.supplier_id = HouseMaterials.supplier_id and SupplierMaterials.material_id = HouseMaterials.material_id and HouseMaterials.house_id = {currentHouse_id};")
+            construction_cost = cursor.fetchone()[0]
             print(f"Construction cost for house {currentHouse_id} in year {year} is {construction_cost} \n")
 
 
