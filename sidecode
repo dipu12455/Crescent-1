@@ -1,0 +1,4 @@
+try: # sometimes there is missing data, and we prepare for `None` being returned
+    unit_price = float(cursor.fetchone()[0])
+except (TypeError, ValueError):
+    unit_price = 0
