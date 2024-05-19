@@ -111,7 +111,7 @@ def ML():
     sales = [] # list of sales per year from 2014 to 2024
     CostOfManufacturing = [] # list of construction costs per year from 2014 to 2024
 
-    for year in range(2014, 2025):
+    for year in range(2014, 2024):
         cursor.execute(f"SELECT * FROM Sales WHERE YEAR(sale_date) = {year}")
         rows = cursor.fetchall()
         yearlyCostOfManufacturing = 0
@@ -125,20 +125,15 @@ def ML():
         CostOfManufacturing.append(yearlyCostOfManufacturing)
         cursor.execute(f"select SUM(sale_price) from Sales where year(sale_date) = {year}")
         sales.append(cursor.fetchone()[0]) # append the total sales for that year
-    
-    # make a new list of per year profit which is sales - cost of manufacturing
-    profit = []
-    for i in range(0, len(sales)):
-        try:
-            profit.append(sales[i] - CostOfManufacturing[i])
-        except:
-            profit.append(0)
-    # print(profit)
-    for i in profit:
-        print(i)
-    
-    for i in CostOfManufacturing:
-        print("cost of manu" + str(i))
+
+    # print the sales array
+    print("Sales list: \n")
+    print(sales)
+    print("\n")
+    # print the CostOfManufacturing array
+    print("Cost of Manufacturing list: \n")
+    print( CostOfManufacturing)
+    print("\n")
 
 
 
