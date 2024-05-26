@@ -34,12 +34,12 @@ def executeQueryFromFile(_sqlFilename):
 
 def fillData():
     # fill Houses table
-    header = "use crescent1;\ninsert into Houses (address, city, state, zipcode, construction_date)\n values"
+    header = "use crescent1;\ninsert into Houses (house_id, address, city, state, zipcode, construction_date)\n values"
     sendQueryFromCsv('data/Houses.csv', header)
 
     # fill Materials table
     header = "use crescent1;\ninsert into Materials (material_name)\n values"
-    sendQueryFromCsv('data/Materials.csv', header)
+    sendQueryFromCsv('data/presets/Materials.csv', header)
 
     # fill Sales table
     header = "use crescent1;\ninsert into Sales (house_id, sale_date, sale_price)\n values"
@@ -47,11 +47,11 @@ def fillData():
 
     # fill SupplierMaterials table
     header = "use crescent1;\ninsert into SupplierMaterials (supplier_id, material_id, unit_price)\n values"
-    sendQueryFromCsv('data/SupplierMaterials.csv', header)
+    sendQueryFromCsv('data/presets/SupplierMaterials.csv', header)
 
     # fill Suppliers table
     header = "use crescent1;\ninsert into Suppliers (supplier_name, contact_person, phone_number)\n values"
-    sendQueryFromCsv('data/Suppliers.csv', header)
+    sendQueryFromCsv('data/presets/Suppliers.csv', header)
 
     # fill HouseMaterials table
     header = "use crescent1;\ninsert into HouseMaterials (house_id, supplier_id, material_id, how_many)\n values"

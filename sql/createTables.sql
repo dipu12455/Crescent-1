@@ -14,7 +14,7 @@ create table if not exists `crescent1`.`Suppliers` (
   
   /* create the Houses table */
   create table if not exists `crescent1`.`Houses` (
-  `house_id` int not null auto_increment,
+  `house_id` int not null,
   `address` varchar(255) not null,
   `city` varchar(45) null,
   `state` varchar(45) null,
