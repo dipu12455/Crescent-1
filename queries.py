@@ -1,5 +1,7 @@
 import mysql.connector # to install this module > pip install mysql-connector-python
 import csv
+import numpy as np
+import random
 
 # create a global connection variable
 connection = None
@@ -19,6 +21,7 @@ def initSql():
         )
     # Create a cursor
     cursor = connection.cursor()
+    return cursor
 
 def closeSql():
     # Close the cursor
@@ -104,40 +107,3 @@ def executeQuery(_query):
     # Commit the changes
     connection.commit()
     # changes need to be committed when making changes like this to the database, it is good practice
-
-def ML():
-    # ML code start (Linear Regression)
-
-    sales = [] # list of sales per year from 2014 to 2024
-    CostOfManufacturing = [] # list of construction costs per year from 2014 to 2024
-
-    for year in range(2014, 2024):
-        cursor.execute(f"SELECT * FROM Sales WHERE YEAR(sale_date) = {year}")
-        rows = cursor.fetchall()
-        yearlyCostOfManufacturing = 0
-        for row in rows:
-            # `rows` is a list of rows, iterating we get single row per loop, `row` is a list of columns, so accessing second column is row[1]
-            currentHouse_id = row[1]
-            # find all material and supplier relationships for current house_id in HouseMaterials table
-            cursor.execute(f"select SUM(SupplierMaterials.unit_price * HouseMaterials.how_many) from HouseMaterials, SupplierMaterials where SupplierMaterials.supplier_id = HouseMaterials.supplier_id and SupplierMaterials.material_id = HouseMaterials.material_id and HouseMaterials.house_id = {currentHouse_id};")
-            house_construction_cost = cursor.fetchone()[0]
-            yearlyCostOfManufacturing += house_construction_cost
-        CostOfManufacturing.append(yearlyCostOfManufacturing)
-        cursor.execute(f"select SUM(sale_price) from Sales where year(sale_date) = {year}")
-        sales.append(cursor.fetchone()[0]) # append the total sales for that year
-
-    # print the sales array
-    print("Sales list: \n")
-    print(sales)
-    print("\n")
-    # print the CostOfManufacturing array
-    print("Cost of Manufacturing list: \n")
-    print( CostOfManufacturing)
-    print("\n")
-
-
-
-
-
-    # ML code end
-    pass

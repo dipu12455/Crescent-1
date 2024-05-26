@@ -1,3 +1,4 @@
+# this script generates random csv data for the database, and the SetupSQL.py script fills the database with the data.
 import random
 import csv
 import math
@@ -135,10 +136,7 @@ def createHousesCSV(): # needs to be called after the Sales.csv file is created
                 newAddress = str(houseNumber) + " " + streetName + " " + streetType
 
                 # now generate a random city
-                newCity = random.choice(["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville", "San Francisco", "Indianapolis", "Columbus", "Fort Worth", "Charlotte", "Seattle", "Denver", "El Paso", "Detroit", "Washington", "Boston", "Memphis", "Nashville", "Portland", "Oklahoma City", "Las Vegas", "Baltimore", "Louisville", "Milwaukee", "Albuquerque", "Tucson", "Fresno", "Sacramento", "Mesa", "Kansas City", "Atlanta", "Long Beach", "Omaha", "Raleigh", "Miami", "Oakland", "Minneapolis", "Tulsa", "Cleveland", "Wichita", "Arlington", "New Orleans", "Bakersfield", "Tampa", "Honolulu", "Anaheim", "Aurora", "Santa Ana", "St. Louis", "Riverside", "Corpus Christi", "Lexington", "Pittsburgh", "Anchorage", "Stockton", "Cincinnati", "St. Paul", "Toledo", "Greensboro", "Newark", "Plano", "Henderson", "Lincoln", "Buffalo", "Jersey City", "Chula Vista", "Fort Wayne", "Orlando", "St. Petersburg", "Chandler", "Laredo", "Norfolk", "Durham", "Madison", "Lubbock", "Irvine", "Winston-Salem", "Glendale", "Garland", "Hialeah", "Reno", "Chesapeake", "Gilbert", "Baton Rouge", "Irving", "Scottsdale", "North Las Vegas", "Fremont", "Boise", "Richmond", "San Bernardino", "Birmingham", "Spokane", "Rochester", "Des Moines", "Modesto", "Fayetteville", "Tacoma", "Oxnard", "Fontana", "Columbus", "Montgomery", "Moreno Valley", "Shreveport", "Aurora", "Yonkers", "Akron", "Huntington Beach", "Little Rock", "Augusta", "Amarillo"])
-
-                # now generate a random state
-                newState = random.choice(["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+                newCity = random.choice(["Denver", "Fort Collins", "Lakewood", "Littleton", "Englewood", "Roxborough Park", "Castle Rock", "Parker", "Aurora", "Boulder", "Longmont", "Loveland", "Greeley", "Colorado Springs"])
 
                 # now generate a random zip code
                 newZip = random.randint(10000, 99999)
@@ -154,7 +152,7 @@ def createHousesCSV(): # needs to be called after the Sales.csv file is created
 
                 construction_year = int(sale_date[0:4]) - 1 # just to make sure construction date is always behind sale date
                 newConstruction_date = str(construction_year) + "-" + str(construction_month) + "-01 00:00:00"
-                outputwriter.writerow([newHouse_id, newAddress, newCity, newState, newZip, newConstruction_date])
+                outputwriter.writerow([newHouse_id, newAddress, newCity, "CO", newZip, newConstruction_date])
 
 def createHouseMaterialsCSV(): # Sales.csv must exist before this function is called
     # this csv determines how much it cost to build each house
@@ -208,7 +206,7 @@ def createHouseMaterialsCSV(): # Sales.csv must exist before this function is ca
 # CSV for Materials.csv, Suppliers.csv, and SupplierMaterials.csv doesn't need to be generated, the preset data is enough
 
 def generateRandomCSVData():
-    createSalesCSV(13, 9, 10, 250000, 5000000)
+    createSalesCSV(240, 57, 10, 250000, 5000000)
     print("Sales.csv created.")
     createHousesCSV()
     print("Houses.csv created.")

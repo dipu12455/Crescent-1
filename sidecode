@@ -2,3 +2,49 @@ try: # sometimes there is missing data, and we prepare for `None` being returned
     unit_price = float(cursor.fetchone()[0])
 except (TypeError, ValueError):
     unit_price = 0
+
+    cursor.execute(f"select SUM(SupplierMaterials.unit_price * HouseMaterials.how_many) from HouseMaterials, SupplierMaterials where SupplierMaterials.supplier_id = HouseMaterials.supplier_id and SupplierMaterials.material_id = HouseMaterials.material_id and HouseMaterials.house_id = {currentHouse_id};")
+
+    for year in range(2000, 2010):
+        cursor.execute(f"SELECT * FROM Sales WHERE YEAR(sale_date) = {year}")
+        rows = cursor.fetchall()
+        print(f"Year: {year}")
+        for row in rows:
+            print(row)
+        yearlyCostOfManufacturing = 0 # initialize a variable
+        for row in rows:
+            # `rows` is a list of rows, iterating we get single row per loop, `row` is a list of columns, so accessing second column is row[1]
+            currentHouse_id = row[1]
+            print(f"\tCurrent House ID: {currentHouse_id}")
+            # find all material and supplier relationships for current house_id in HouseMaterials table
+            cursor.execute(f"SELECT material_id, supplier_id, how_many FROM HouseMaterials WHERE house_id = {currentHouse_id}")
+            house_materials = cursor.fetchall()
+
+            house_construction_cost = 0
+            for material in house_materials:
+                material_id = material[0]
+                supplier_id = material[1]
+                how_many = material[2]
+                print(f"\t\tMaterial ID: {material_id}, Supplier ID: {supplier_id}, How Many: {how_many}")
+
+                cursor.execute(f"SELECT unit_price FROM SupplierMaterials WHERE supplier_id = {supplier_id} AND material_id = {material_id}")
+                unit_price = cursor.fetchone()[0]
+                print(f"\t\t\tUnit Price: {unit_price}")
+
+                house_construction_cost += unit_price * how_many
+
+            yearlyCostOfManufacturing += house_construction_cost
+        CostOfManufacturing.append(yearlyCostOfManufacturing)
+        cursor.execute(f"select SUM(sale_price) from Sales where year(sale_date) = {year}")
+        sales.append(cursor.fetchone()[0]) # append the total sales for that year
+
+    # print the sales array
+    print("Sales list: \n")
+    for sale in sales:
+        print("\t"+str(sale))
+    print("\n")
+    # print the CostOfManufacturing array
+    print("Cost of Manufacturing list: \n")
+    for cost in CostOfManufacturing:
+        print("\t" + str(cost))
+    print("\n")
